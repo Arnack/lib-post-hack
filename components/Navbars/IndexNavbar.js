@@ -53,21 +53,30 @@ export default function Navbar(props) {
                 </a>
               </li>
 
-              <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="/all-loans"
-                >
-                  Все кредиты
-                </a>
-              </li>
+<li className="flex items-center">
+  <a
+    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+    href="/bankruptcy"
+  >
+    Банкротства
+  </a>
+</li>
+
+<li className="flex items-center">
+  <a
+    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+    href="/credits"
+  >
+    Кредиты
+  </a>
+</li>
 
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="/mortgage"
+                  href="/mortage"
                 >
-                  Ипотеки
+                  Ипотека
                 </a>
               </li>
 
@@ -83,9 +92,9 @@ export default function Navbar(props) {
               <li className="flex items-center">
                 <a
                   className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="/calculator"
+                  href="/about"
                 >
-                  Калькулятор
+                  О Проекте
                 </a>
               </li>
               {/* <li className="flex items-center">

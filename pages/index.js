@@ -18,7 +18,6 @@ export default function Index() {
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                 Закредитованность россиян выросла в пятнадцать раз{" "}
-                
               </p>
               <div className="mt-12">
                 <a
