@@ -4,6 +4,9 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import { BancrouptMap } from "components/bancrouptMAP/BancrouptMap";
+
+// import PieChartExample from "../../components/charts/piechart";
 
 export default function Index() {
   return (
@@ -63,7 +66,7 @@ export default function Index() {
 
         <hr className="w-full border-b border-blueGray-200" />
 
-        <div className="container mx-auto overflow-hidden pb-20">
+        {/* <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
              
@@ -74,26 +77,26 @@ export default function Index() {
 
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
+              <PieChartExample />
               </div>
             </div>
           </div>
         </div>
 
-        <hr className="w-full border-b border-blueGray-200" />
+        <hr className="w-full border-b border-blueGray-200" /> */}
         <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
 
 <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
   <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-    <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
+  <BancrouptMap />
   </div>
 </div>
 
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
              
               <h3 className="text-2xl mb-2 font-semibold">
-              Доля банков среди истцов
+              Банкротств по решению суда
               </h3>
             </div>
           </div>

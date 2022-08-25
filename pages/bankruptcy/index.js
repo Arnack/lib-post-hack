@@ -4,6 +4,9 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import { BancBtCourt } from "components/bancrouptByCourt/BancByCourt";
+import { IndicatorsFSSPAmount } from "components/fss/indicatorsFCCP/IndicatorsFSSPAmount";
+import { IndicatorsFSSPNUM } from "components/fss/indicatorsFCCP/IndicatorsFSSPNUM";
 
 export default function Index() {
   return (
@@ -44,8 +47,8 @@ export default function Index() {
 
             <div className="w-full md:w-9/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x400/a8a8a8/fff&text=Chart" alt="Bankruptcy" />
-              </div>
+              <BancBtCourt />
+                </div>
             </div>
           </div>
         </div>
@@ -58,15 +61,15 @@ export default function Index() {
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-12/12 px-12 md:px-4 ml-auto mr-48 mt-48">
              
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Сумма исполнительных производств
-              </h3>
+              <p className="text-3xl mb-2 font-semibold leading-normal">
+              Сумма дел о взыскании с физических лиц в пользу кредитных организаций в производстве ФССП
+              </p>
             </div>
 
             <div className="w-full md:w-9/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=Сумма%20исполнительных%20производств" alt="Bankruptcy" />
-              </div>
+              <IndicatorsFSSPAmount />
+                </div>
             </div>
           </div>
         </div>
@@ -79,83 +82,10 @@ export default function Index() {
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-12/12 px-12 md:px-4 ml-auto mr-48 mt-48">
              
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Количество исполнительных производств
-              </h3>
-            </div>
-
-            <div className="w-full md:w-9/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=Количество%20исполнительных%20производств" alt="Bankruptcy" />
-              </div>
+              <IndicatorsFSSPNUM />
             </div>
           </div>
         </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-        <br/>
-        <br/>
-
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-12/12 px-12 md:px-4 ml-auto mr-48 mt-48">
-             
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-              Число арестованного имущества
-              </h3>
-            </div>
-
-            <div className="w-full md:w-9/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=Число%20арестованного%20пимущества" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-        <br/>
-        <br/>
-
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-12/12 px-12 md:px-4 ml-auto mr-48 mt-48">
-             
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-              Число сообщений о реализации имущества
-              </h3>
-            </div>
-
-            <div className="w-full md:w-9/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=Chart" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-        <br/>
-        <br/>
-
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-48">
-             
-              <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Число розыскных дел
-              </h3>
-            </div>
-
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=Chart" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-
 
 
       </section>

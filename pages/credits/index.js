@@ -4,6 +4,10 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import { TotalCredits } from "components/first/TotoalCredits";
+import { OutdatedDebt } from "components/first/OutdatedDebt";
+import { KeyRate } from "components/keyRate/KeyRate";
+import { MortgageChart } from "components/mortgage/mortgage";
 
 export default function Index() {
   return (
@@ -27,7 +31,7 @@ export default function Index() {
 
         <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-12 md:px-4 mr-48 mt-48">
+            <div className="w-full md:w-12/12 px-12 md:px-4 mr-48 mt-48">
              <h3 className="text-3xl mb-2 leading-normal">
              Объем просроченных кредитов
              </h3>
@@ -45,12 +49,12 @@ export default function Index() {
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
               <h3 className="text-2xl mb-2 font-semibold">
-              Общее количество кредитов
+              Общая сумма кредитов
               </h3>
             </div>
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
+                <TotalCredits />
               </div>
             </div>
           </div>
@@ -61,12 +65,12 @@ export default function Index() {
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
+              <OutdatedDebt/>
+                </div>
             </div>
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
               <h3 className="text-2xl mb-2 font-semibold">
-              Общий объем кредитов
+              Общая сумма просроченных кредитов
               </h3>
             </div>
           </div>
@@ -83,23 +87,23 @@ export default function Index() {
             </div>
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
+                <KeyRate />
               </div>
             </div>
           </div>
         </div>
 
-        <hr className="w-full border-b border-blueGray-200" />
+
         <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
+              <MortgageChart />
+                </div>
             </div>
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
               <h3 className="text-2xl mb-2 font-semibold">
-              На какой срок берут кредиты?
+              Количество кредитных организаций
               </h3>
             </div>
           </div>
@@ -107,92 +111,7 @@ export default function Index() {
 
         <hr className="w-full border-b border-blueGray-200" />
 
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
-              <h3 className="text-2xl mb-2 font-semibold">
-              Общая задолженность по кредитам
-              </h3>
-            </div>
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
-            </div>
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
-              <h3 className="text-2xl mb-2 font-semibold">
-              Пророченная задолженность
-              </h3>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
-              <h3 className="text-2xl mb-2 font-semibold">
-              Средний срок погашения кредитов
-              </h3>
-            </div>
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
-            </div>
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
-              <h3 className="text-2xl mb-2 font-semibold">
-              Цели кредитования
-              </h3>
-              <p className="text-gray-600">
-              (инфографика + текст)
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <hr className="w-full border-b border-blueGray-200" />
-
-        <div className="container mx-auto overflow-hidden pb-20">
-          <div className="flex flex-wrap items-center">
-            <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
-              <h3 className="text-2xl mb-2 font-semibold">
-              Кто чаще всего берет кредиты
-              </h3>
-              <p className="text-gray-600">
-              (инфографика + текст)
-              </p>
-            </div>
-            <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
-              <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
-                <img className="w-full h-auto" src="https://dummyimage.com/600x200/a8a8a8/fff&text=chart" alt="Bankruptcy" />
-              </div>
-            </div>
-          </div>
-        </div>
+      
         
       </section>
       

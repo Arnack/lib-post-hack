@@ -4,6 +4,9 @@ import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
 
+import { ApolloProvider } from "@apollo/react-hooks";  
+import withData from "../utils/apollo";
+
 import PageChange from "components/PageChange/PageChange.js";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -26,7 +29,7 @@ Router.events.on("routeChangeError", () => {
   document.body.classList.remove("body-page-transition");
 });
 
-export default class MyApp extends App {
+class MyApp extends App {
   componentDidMount() {
     let comment = document.createComment(`
 
@@ -59,24 +62,28 @@ export default class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, apollo } = this.props;
 
     const Layout = Component.layout || (({ children }) => <>{children}</>);
 
     return (
+      <ApolloProvider client={apollo}>
       <React.Fragment>
         <Head>
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>Notus NextJS by Creative Tim</title>
+          <title>Кредитный прожектор</title>
           <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
         </Head>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </React.Fragment>
+      </ApolloProvider>
     );
   }
 }
+
+export default withData(MyApp);
