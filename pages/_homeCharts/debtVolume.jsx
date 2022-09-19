@@ -15,17 +15,17 @@ const data = [
 
 
 export const DebtVolNum = ({ data }) => {
-    console.log('data>>>', data);
 
-    const categories = Object.keys(data.Data);
-    console.log('categories>>>', categories);
+    if (!data) {
+        return <></>
+    }
+
+    const categories = Object.keys(data?.Data);
     const dataVals = [];
-    categories.forEach(category => dataVals.push(data.Data[category][0]));
-
-    console.log('dataVals>>>', dataVals);
+    categories.forEach(category => dataVals.push(data?.Data[category][0]));
 
     return (
-                <CommonChart label={data.Header}
+                <CommonChart label={data?.Header}
                              categories={categories}
                              data={dataVals}
                 />

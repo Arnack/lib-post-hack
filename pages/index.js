@@ -148,8 +148,10 @@ useEffect(() => {
 
       {dataBlocks && <section>
         <div className="container">
-          <h4>{headerDividers[1].Header}</h4>
-          <p>{headerDividers[1].Subheader}</p>
+         {headerDividers && <>
+          <h4>{headerDividers[1]?.Header}</h4>
+          <p>{headerDividers[1]?.Subheader}</p>
+          </>}
           <DebtVolNum data={dataBlocks[3]} /> 
         </div>
       </section>}
