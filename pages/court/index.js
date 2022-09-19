@@ -1,20 +1,88 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import { BancrouptMap } from "components/bancrouptMAP/BancrouptMap";
+import { Factoid } from "components/textBlocks/factoids/factoid";
+import axios from "axios";
+import { API_ROOT } from "lib/utils/constants";
 
 // import PieChartExample from "../../components/charts/piechart";
 
 export default function Index() {
+  const [loading, setIsLoading] = useState(false);
+  const [pageData, setPageData] = useState(null);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    const data = await axios.get(`${API_ROOT}court?populate[PageContent][populate]=*`);
+
+    console.log('>>>>data.data.data.attributes.PageContent', data.data.data.attributes.PageContent);
+
+    setPageData(data.data.data.attributes.PageContent);
+    setIsLoading(false)
+
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+
+  if (loading || !pageData) {
+    return (
+      <>
+        <IndexNavbar fixed />
+        <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
+          <div className="container">
+            <h4>Loading...</h4>
+          </div>
+        </section>
+      </>
+    )
+  }
+
+
   return (
     <>
-    <IndexNavbar fixed />
-      
+      <IndexNavbar fixed />
+
 
       <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
+        <div className="container">
+          <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+            <h2 className="font-semibold text-4xl">{pageData.About.Header}</h2>
+            <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
+              {pageData.About.Subheader}
+            </p>
+            <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
+              {pageData.About.Description}
+            </p>
+          </div>
+        </div>
+
+        <hr className="w-full border-b border-blueGray-200" />
+      </section>
+
+      <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+        <div className="container">
+          <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+            <div className="row">
+              {
+                pageData.Factoids?.map(factoid => <div className="col col-md-4">
+                  <Factoid id={factoid.title} title={factoid.title} subtitle={factoid.subtitle} />
+                </div>)
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
        
         
       <div className="justify-center text-center flex flex-wrap">
@@ -64,9 +132,9 @@ export default function Index() {
           </div>
         </div>
 
-        <hr className="w-full border-b border-blueGray-200" />
+        <hr className="w-full border-b border-blueGray-200" /> */}
 
-        {/* <div className="container mx-auto overflow-hidden pb-20">
+      {/* <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
             <div className="w-full md:w-6/12 px-12 md:px-4 ml-auto mr-48 mt-0">
              
@@ -84,7 +152,7 @@ export default function Index() {
         </div>
 
         <hr className="w-full border-b border-blueGray-200" /> */}
-        <div className="container mx-auto overflow-hidden pb-20">
+      {/* <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
 
 <div className="w-full md:w-6/12 px-4 mr-auto ml-auto mt-8">
@@ -102,8 +170,8 @@ export default function Index() {
           </div>
         </div>
 
-      </section>
-      
+      </section> */}
+
       <Footer />
     </>
   );
