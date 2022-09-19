@@ -76,24 +76,31 @@ useEffect(() => {
                 {pageHeader[0]?.Description}
               </p>
               <div className="mt-12">
-                <a
-                  href=""
+                <Link 
+                  href="/credits"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
-                  Кредиты
-                </a>
-                <a
+                  <span className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+            >Кредиты</span>
+                  
+                </Link>
+                <Link className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
+                
                   href=""
-                  className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
-                >
-                  Ипотеки
-                </a>
-                <a
-                  href=""
-                  className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-700 uppercase text-sm shadow hover:shadow-lg"
-                >
-                  Суды
-                </a>
+                  >
+                    <span
+                    className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
+                    >
+                    Ипотеки
+                    </span>
+                  
+                </Link>
+                <Link
+                  href="">
+                  <span className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-700 uppercase text-sm shadow hover:shadow-lg">
+                
+                  Банкротства</span>
+                </Link>
               </div>
             </div>}
           </div>
