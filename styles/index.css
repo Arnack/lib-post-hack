@@ -4,7 +4,10 @@
 
 @tailwind utilities;
 
-
 .highcharts-background {
     opacity: 0 !important;
+}
+
+nav ul {
+    margin-bottom: 0px !important;
 }

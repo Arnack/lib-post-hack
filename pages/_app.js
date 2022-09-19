@@ -11,6 +11,7 @@ import PageChange from "components/PageChange/PageChange.js";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "styles/tailwind.css";
+import 'bootstrap/dist/css/bootstrap.css';
 
 Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${url}`);
@@ -62,12 +63,12 @@ class MyApp extends App {
     return { pageProps };
   }
   render() {
-    const { Component, pageProps, apollo } = this.props;
+    const { Component, pageProps } = this.props;
 
     const Layout = Component.layout || (({ children }) => <>{children}</>);
 
     return (
-      <ApolloProvider client={apollo}>
+      // <ApolloProvider client={apollo}>
       <React.Fragment>
         <Head>
           <meta
@@ -81,7 +82,7 @@ class MyApp extends App {
           <Component {...pageProps} />
         </Layout>
       </React.Fragment>
-      </ApolloProvider>
+      // </ApolloProvider>
     );
   }
 }
