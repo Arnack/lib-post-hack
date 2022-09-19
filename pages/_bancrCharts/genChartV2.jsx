@@ -2,7 +2,7 @@ import React from "react";
 import { CommonChart } from "components/commonChart/CommonChart";
 
 export const BancrGenChartV2 = ({ categories, data, subheader, header, description }) => {
-
+// console.log(categories, data);
     return (
         <div className="row">
             <div className="col-md-8">
