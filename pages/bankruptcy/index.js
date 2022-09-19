@@ -14,8 +14,6 @@ import { BancrGenChart } from "pages/_bancrCharts/genChart";
 import { BancrGenChartV2 } from "pages/_bancrCharts/genChartV2";
 
 export default function Index() {
-
-
   const [loading, setIsLoading] = useState(false);
   const [pageData, setPageData] = useState(null);
 
@@ -42,8 +40,6 @@ export default function Index() {
       </>
     )
   }
-
-  console.log('>>>>', pageData);
 
   return (
     <>
@@ -114,7 +110,7 @@ export default function Index() {
           description={pageData.DataBlocks[5].Description}
         />
       </section>
-
+ 
       <Footer />
     </>
   );

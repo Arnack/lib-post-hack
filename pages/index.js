@@ -31,19 +31,18 @@ const fetchData = async () => {
 
   const headersDividers = await axios.get(`${API_ROOT}home-page?populate[HeadersDividers][populate]=*`);
 
-  console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
+  // console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
   setDataBlocks(dataBlocks.data.data.attributes.DataBlocks);
 
-  console.log('PageHeader>>>', PageHeader.data.data.attributes.PageHeader);
+  // console.log('PageHeader>>>', PageHeader.data.data.attributes.PageHeader);
   setPageHeader(PageHeader.data.data.attributes.PageHeader);
 
-  console.log('factoids>>>', factoids.data.data.attributes.factoids);
+  // console.log('factoids>>>', factoids.data.data.attributes.factoids);
   setFactoids(factoids.data.data.attributes.factoids);
 
-  console.log('TextBlocks>>>', textBlocks.data.data.attributes.TextBlocks);
+  // console.log('TextBlocks>>>', textBlocks.data.data.attributes.TextBlocks);
   setTextBlocks(textBlocks.data.data.attributes.TextBlocks);
 
-  console.log('HeadersDividers>>>', headersDividers.data.data.attributes.HeadersDividers);
   setHeaderDividers(headersDividers.data.data.attributes.HeadersDividers);
 
   setIsLoading(false);
