@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardText } from "reactstrap";
+import ReactMarkdown from 'react-markdown'
 
 export const TextBlock = ({ title, description, colorScheme }) => {
     return (
@@ -17,7 +18,7 @@ export const TextBlock = ({ title, description, colorScheme }) => {
                     {title}
                 </CardTitle>
                 <CardText>
-                    {description}
+                    <ReactMarkdown>{description}</ReactMarkdown>
                 </CardText>
             </CardBody>
         </Card>

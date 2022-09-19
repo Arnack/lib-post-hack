@@ -1,17 +1,52 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
+import { API_ROOT } from "lib/utils/constants";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import Query from "components/query";
+import { TextBlock } from "components/textBlocks/textBlock/TextBlock";
 // import CATEGORI
 // import CATEGORIES_QUERY from "../apollo/queries/category/categories";
 
 export default function Index() {
+  const [loading, setIsLoading] = useState(false);
+  const [textBlocks, setPageData] = useState(null);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    const data = await axios.get(`${API_ROOT}about?populate[TextBlocks][populate]=*`);
+
+    console.log('>>>>data.data.data.attributes.TextBlocks', data.data.data.attributes.TextBlocks);
+
+    setPageData(data.data.data.attributes.TextBlocks);
+    setIsLoading(false)
+
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+
+  if (loading || !textBlocks) {
+    return (
+      <>
+        <IndexNavbar fixed />
+        <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
+          <div className="container">
+            <h4>Loading...</h4>
+          </div>
+        </section>
+      </>
+    )
+  }
+
   return (
     <>
-    {/* <Query query={CATEGORIES_QUERY} id={null}></Query> */}
       <IndexNavbar fixed />
       <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto flex flex-wrap">
@@ -28,31 +63,18 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ------------------- */}
-
-      
-
-
-
-
-      {/* <div className="container mx-auto px-4 pb-32 pt-48">
-          <div className="items-center flex flex-wrap">
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
-              <div className="md:pr-12">
-                <h3 className="text-3xl font-semibold">
-                  Благодарности
-                </h3>
-                <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                  Здесь могут быть благодарности
-                </p>
+      <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
+        <div className="container">
+          <div className="row">
+          {textBlocks.map((textBlock, idx) => {
+            if (idx === 0) return <></>;
+            return <div className="col col-md-6">
+                <TextBlock id={textBlock.id + 'tb'} colorScheme="light" title={textBlock.Title} description={textBlock.Description} />
               </div>
-            </div>
-
-            </div>
-      </div> */}
-     
-
-      
+          })}
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   );
