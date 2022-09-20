@@ -92,18 +92,10 @@ const datax = [
 export const AllCreditsMap = ({ data }) => {
   const [currentDateIdx, setDateIdx] = useState(0);
 
-
-  console.log(data);
-
   const chartData = data.Data;
-  const dates = Object.keys(chartData).filter((key) => key !== "region_iso" && key !== "region_reg_name");
-
-  console.log(dates);
+  const dates = Object.keys(chartData).filter((key) => key !== "region_iso" && key !== "region_reg_name" && key !== "region_name" && key !== "region");
 
   const regions = Object.values(chartData["region_iso"]);
-
-  console.log(regions);
-
 
   const datas = [];
 
@@ -127,12 +119,12 @@ export const AllCreditsMap = ({ data }) => {
   return (
     <div className="container">
     <div className="row">
-        <div className="col col-md-4">
+        <div className="col col-md-5">
             <h3>{data.Header}</h3>
             <p>{data.Description}</p>
         </div>
 
-        <div className="col col-md-8">
+        <div className="col col-md-7">
       <RusMap
         mapTitle={data.Header}
         data={datas[currentDateIdx]}

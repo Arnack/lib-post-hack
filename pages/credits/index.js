@@ -23,8 +23,6 @@ export default function Index() {
     setIsLoading(true);
     const data = await axios.get(`${API_ROOT}credit?populate[PageContent][populate]=*`);
 
-    console.log('>>>', data.data.data.attributes.PageContent);
-
     setPageData(data.data.data.attributes.PageContent);
     setIsLoading(false)
 
@@ -93,6 +91,12 @@ export default function Index() {
         }
       </section>
 
+      <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+        {
+          <AllCreditsMap data={pageData.DataBlocks[1]} />
+        }
+      </section>
+
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
         {
@@ -105,6 +109,18 @@ export default function Index() {
           />
         }
       </section>
+
+<section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+  {
+    <AllCreditsMap data={pageData.DataBlocks[4]} />
+  }
+</section>
+
+<section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+  {
+    <AllCreditsMap data={pageData.DataBlocks[5]} />
+  }
+</section>
 
       {/* <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
         {

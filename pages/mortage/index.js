@@ -14,6 +14,7 @@ import axios from "axios";
 import { API_ROOT } from "lib/utils/constants";
 import { Factoid } from "components/textBlocks/factoids/factoid";
 import { BancrGenChartV2 } from "pages/_bancrCharts/genChartV2";
+import { AllCreditsMap } from "pages/_creditCharts/allCreditsMap";
 
 export default function Index() {
 
@@ -70,7 +71,7 @@ export default function Index() {
         <hr className="w-full border-b border-blueGray-200" />
       </section>
 
-      <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+      { pageData.Factoids?.length && <section className="md:mt-1 pb-40 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">
@@ -82,25 +83,77 @@ export default function Index() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
+
 
       <section className="md:mt-1 pb-40 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+            <AllCreditsMap data={pageData.DataBlocks[0]} />
+          </div>
+        </div>
+      </section>
+
+<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+  <div className="container">
+    <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+      <AllCreditsMap data={pageData.DataBlocks[1]} />
+    </div>
+  </div>
+</section>
+
+<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+  <div className="container">
+    <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+      <AllCreditsMap data={pageData.DataBlocks[2]} />
+    </div>
+  </div>
+</section>
+
+
+<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+        <div className="container">
+          <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">
               {
-                <BancrGenChartV2
-                  categories={Object.values(pageData.DataBlocks[5].Data.Period)}
-                  data={Object.values(pageData.DataBlocks[5].Data.primary_all_types)}
-                  header={pageData.DataBlocks[5].Header}
-                  description={pageData.DataBlocks[5].Description}
-                  subheader={pageData.DataBlocks[5].Subheader}
-                />
+                 <AllCreditsMap data={pageData.DataBlocks[3]} />
               }
             </div>
           </div>
         </div>
       </section>
+
+
+<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+  <div className="container">
+    <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+      <div className="row">
+        {
+           <AllCreditsMap data={pageData.DataBlocks[4]} />
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+  <div className="container">
+    <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+      <div className="row">
+        {
+          <BancrGenChartV2
+            categories={Object.values(pageData.DataBlocks[5].Data.Period)}
+            data={Object.values(pageData.DataBlocks[5].Data.primary_all_types)}
+            header={pageData.DataBlocks[5].Header}
+            description={pageData.DataBlocks[5].Description}
+            subheader={pageData.DataBlocks[5].Subheader}
+          />
+        }
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="md:mt-1 pb-40 relative bg-blueGray-100">
         <div className="container">
