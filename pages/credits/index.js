@@ -13,6 +13,7 @@ import { API_ROOT } from "lib/utils/constants";
 import { Factoid } from "components/textBlocks/factoids/factoid";
 import { BancrGenChart } from "pages/_bancrCharts/genChart";
 import { BancrGenChartV2 } from "pages/_bancrCharts/genChartV2";
+import { AllCreditsMap } from "pages/_creditCharts/allCreditsMap";
 
 export default function Index() {
   const [loading, setIsLoading] = useState(false);
@@ -21,6 +22,8 @@ export default function Index() {
   const fetchData = async () => {
     setIsLoading(true);
     const data = await axios.get(`${API_ROOT}credit?populate[PageContent][populate]=*`);
+
+    console.log('>>>', data.data.data.attributes.PageContent);
 
     setPageData(data.data.data.attributes.PageContent);
     setIsLoading(false)
@@ -38,7 +41,9 @@ export default function Index() {
       <>
         <IndexNavbar fixed />
         <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
-          <h4>Loading...</h4>
+          <div className="container">
+            <h4>Loading...</h4>
+          </div>
         </section>
       </>
     )
@@ -84,6 +89,13 @@ export default function Index() {
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
         {
+          <AllCreditsMap data={pageData.DataBlocks[0]} />
+        }
+      </section>
+
+
+      <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+        {
           <BancrGenChartV2
             categories={Object.values(pageData.DataBlocks[2].Data.Dates)}
             data={Object.values(pageData.DataBlocks[2].Data.Rate).map(item => +(item.replace(',', '.')))}
@@ -92,7 +104,6 @@ export default function Index() {
             subheader={pageData.DataBlocks[2].Subheader}
           />
         }
-        
       </section>
 
       {/* <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">

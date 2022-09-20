@@ -10,11 +10,13 @@ if (typeof Highcharts === 'object') {
 
 const options = {
     chart: {
-        map: 'countries/ru/custom/ru-all-disputed'
+        map: 'countries/ru/custom/ru-all-disputed',
+        animation: false,
+        backgroundColor: null,
     },
 
     title: {
-        text: 'Highmaps basic demo'
+        text: ''
     },
 
     subtitle: {
@@ -74,6 +76,7 @@ export const RusMap = ({ mapTitle,  data, minVal, maxVal, stopColors }) => {
 
     return <>
         <HighchartsReact
+            isAnimationActive={false}
             highcharts={Highcharts}
             constructorType={'mapChart'}
             options={mapOptions}

@@ -99,7 +99,7 @@ export default function Index() {
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
-        <BancrGenChart data={pageData.DataBlocks[4]} />
+        <BancrGenChart data={pageData.DataBlocks[4]} isSummarise={true} />
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
