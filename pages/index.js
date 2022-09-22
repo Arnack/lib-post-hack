@@ -5,10 +5,11 @@ import axios from "axios";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import { API_POPULATE, API_ROOT } from "lib/utils/constants";
+import { API_ROOT } from "lib/utils/constants";
 import { Factoid } from "components/textBlocks/factoids/factoid";
 import { TextBlock } from "components/textBlocks/textBlock/TextBlock";
 import { DebtVolNum } from "./_homeCharts/debtVolume";
+import { AllCreditsMap } from "./_creditCharts/allCreditsMap";
 
 export default function Index() {
   const [loading, setIsLoading] = useState(false);
@@ -162,8 +163,19 @@ useEffect(() => {
         </div>
       </section>}
 
+<br/>
+<br/>
+<br/>
 
-
+      <section>
+        <div className="container">
+          <div className="row">
+          {
+            <AllCreditsMap data={dataBlocks[1]} />
+          }
+          </div>
+        </div>
+      </section>
 
 
       <section className="py-20 bg-blueGray-600 overflow-hidden">
@@ -233,19 +245,3 @@ useEffect(() => {
     </>
   );
 }
-
-// export async function getServerSidePropss() {
-//   // Fetch data from external API
-//   const dataBlocks = await axios.get(`${API_ROOT}home-page?populate[DataBlocks][populate]=*`);
-
-//   const PageHeader = await axios.get(`${API_ROOT}home-page?populate[PageHeader][populate]=*`);
-
-//   const factoids = await axios.get(`${API_ROOT}home-page?populate[factoids][populate]=*`);
-
-//   const TextBlocks = await axios.get(`${API_ROOT}home-page?populate[TextBlocks][populate]=*`);
-
-//   const HeadersDividers = await axios.get(`${API_ROOT}home-page?populate[HeadersDividers][populate]=*`);
-
-//   // Pass data to the page via props
-//   return { props: { dataBlocks, PageHeader, factoids, TextBlocks, HeadersDividers } }
-// }

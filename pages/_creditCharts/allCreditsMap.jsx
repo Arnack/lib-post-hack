@@ -93,6 +93,10 @@ export const AllCreditsMap = ({ data }) => {
   const [currentDateIdx, setDateIdx] = useState(0);
 
   const chartData = data.Data;
+
+  console.log('data>>>>', data);
+  console.log('chartData>>>>', chartData);
+
   const dates = Object.keys(chartData).filter((key) => key !== "region_iso" && key !== "region_reg_name" && key !== "region_name" && key !== "region");
 
   const regions = Object.values(chartData["region_iso"]);

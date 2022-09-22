@@ -25,8 +25,6 @@ export default function Index() {
     setIsLoading(true);
     const data = await axios.get(`${API_ROOT}mortage?populate[PageContent][populate]=*`);
 
-    console.log('>>>>data.data.data.attributes.PageContent', data.data.data.attributes.PageContent);
-
     setPageData(data.data.data.attributes.PageContent);
     setIsLoading(false)
 
@@ -71,7 +69,7 @@ export default function Index() {
         <hr className="w-full border-b border-blueGray-200" />
       </section>
 
-      { pageData.Factoids?.length && <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+      { !!pageData.Factoids?.length && <section className="md:mt-1 pb-40 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">
