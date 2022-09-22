@@ -14,7 +14,7 @@ const data = [
 
 
 
-export const DebtVolNum = ({ data }) => {
+const DebtVolNum = ({ data }) => {
 
     if (!data) {
         return <></>
@@ -31,3 +31,6 @@ export const DebtVolNum = ({ data }) => {
                 />
     )
 };
+
+
+export default DebtVolNum;

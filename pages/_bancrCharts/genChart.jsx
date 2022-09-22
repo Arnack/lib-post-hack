@@ -1,7 +1,7 @@
 import React from "react";
 import { CommonChart } from "components/commonChart/CommonChart";
 
-export const BancrGenChart = ({ data, isSummarise }) => {
+const BancrGenChart = ({ data, isSummarise }) => {
 
     if (!data || !data.Data) {
         return <></>
@@ -40,3 +40,5 @@ export const BancrGenChart = ({ data, isSummarise }) => {
                 
     )
 };
+
+export default BancrGenChart;

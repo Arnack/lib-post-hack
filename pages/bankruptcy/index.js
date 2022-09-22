@@ -4,14 +4,11 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import { BancBtCourt } from "components/bancrouptByCourt/BancByCourt";
-import { IndicatorsFSSPAmount } from "components/fss/indicatorsFCCP/IndicatorsFSSPAmount";
-import { IndicatorsFSSPNUM } from "components/fss/indicatorsFCCP/IndicatorsFSSPNUM";
 import { API_ROOT } from "lib/utils/constants";
 import axios from "axios";
 import { Factoid } from "components/textBlocks/factoids/factoid";
-import { BancrGenChart } from "pages/_bancrCharts/genChart";
-import { BancrGenChartV2 } from "pages/_bancrCharts/genChartV2";
+import BancrGenChart from "pages/_bancrCharts/genChart";
+import BancrGenChartV2 from "pages/_bancrCharts/genChartV2";
 
 export default function Index() {
   const [loading, setIsLoading] = useState(false);

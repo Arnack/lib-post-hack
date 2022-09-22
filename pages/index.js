@@ -8,8 +8,8 @@ import Footer from "components/Footers/Footer.js";
 import { API_ROOT } from "lib/utils/constants";
 import { Factoid } from "components/textBlocks/factoids/factoid";
 import { TextBlock } from "components/textBlocks/textBlock/TextBlock";
-import { DebtVolNum } from "./_homeCharts/debtVolume";
-import { AllCreditsMap } from "./_creditCharts/allCreditsMap";
+import DebtVolNum from "./_homeCharts/debtVolume";
+import AllCreditsMap from "./_creditCharts/allCreditsMap";
 
 export default function Index() {
   const [loading, setIsLoading] = useState(false);
@@ -19,47 +19,46 @@ export default function Index() {
   const [textBlocks, setTextBlocks] = useState([]);
   const [headerDividers, setHeaderDividers] = useState([]);
 
+  const fetchData = async () => {
+    setIsLoading(true)
+    const dataBlocks = await axios.get(`${API_ROOT}home-page?populate[DataBlocks][populate]=*`);
 
-const fetchData = async () => {
-  setIsLoading(true)
-  const dataBlocks = await axios.get(`${API_ROOT}home-page?populate[DataBlocks][populate]=*`);
+    const PageHeader = await axios.get(`${API_ROOT}home-page?populate[PageHeader][populate]=*`);
 
-  const PageHeader = await axios.get(`${API_ROOT}home-page?populate[PageHeader][populate]=*`);
+    const factoids = await axios.get(`${API_ROOT}home-page?populate[factoids][populate]=*`);
 
-  const factoids = await axios.get(`${API_ROOT}home-page?populate[factoids][populate]=*`);
+    const textBlocks = await axios.get(`${API_ROOT}home-page?populate[TextBlocks][populate]=*`);
 
-  const textBlocks = await axios.get(`${API_ROOT}home-page?populate[TextBlocks][populate]=*`);
+    const headersDividers = await axios.get(`${API_ROOT}home-page?populate[HeadersDividers][populate]=*`);
 
-  const headersDividers = await axios.get(`${API_ROOT}home-page?populate[HeadersDividers][populate]=*`);
+    // console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
+    setDataBlocks(dataBlocks.data.data.attributes.DataBlocks);
 
-  // console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
-  setDataBlocks(dataBlocks.data.data.attributes.DataBlocks);
+    // console.log('PageHeader>>>', PageHeader.data.data.attributes.PageHeader);
+    setPageHeader(PageHeader.data.data.attributes.PageHeader);
 
-  // console.log('PageHeader>>>', PageHeader.data.data.attributes.PageHeader);
-  setPageHeader(PageHeader.data.data.attributes.PageHeader);
+    // console.log('factoids>>>', factoids.data.data.attributes.factoids);
+    setFactoids(factoids.data.data.attributes.factoids);
 
-  // console.log('factoids>>>', factoids.data.data.attributes.factoids);
-  setFactoids(factoids.data.data.attributes.factoids);
+    // console.log('TextBlocks>>>', textBlocks.data.data.attributes.TextBlocks);
+    setTextBlocks(textBlocks.data.data.attributes.TextBlocks);
 
-  // console.log('TextBlocks>>>', textBlocks.data.data.attributes.TextBlocks);
-  setTextBlocks(textBlocks.data.data.attributes.TextBlocks);
+    setHeaderDividers(headersDividers.data.data.attributes.HeadersDividers);
 
-  setHeaderDividers(headersDividers.data.data.attributes.HeadersDividers);
+    setIsLoading(false);
 
-  setIsLoading(false);
+  }
 
-}
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-useEffect(() => {
-  fetchData();
-}, []);
-
-// if (loading) {
-//   return <>
-//    <IndexNavbar fixed />
-//    <h4>Loading...</h4>
-//   </>
-// }
+  // if (loading) {
+  //   return <>
+  //    <IndexNavbar fixed />
+  //    <h4>Loading...</h4>
+  //   </>
+  // }
 
   return (
     <>
@@ -68,42 +67,42 @@ useEffect(() => {
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             {loading ?
-            <h4>Loading...</h4> :
-            <div className="pt-32 sm:pt-0">
-              <h2 className="font-semibold text-4xl text-blueGray-600">
-                {pageHeader[0]?.Title}
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                {pageHeader[0]?.Description}
-              </p>
-              <div className="mt-12">
-                <Link 
-                  href="/credits"
-                  className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
-                >
-                  <span className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
-            >Кредиты</span>
-                  
-                </Link>
-                <Link className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
-                
-                  href=""
+              <h4>Loading...</h4> :
+              <div className="pt-32 sm:pt-0">
+                <h2 className="font-semibold text-4xl text-blueGray-600">
+                  {pageHeader[0]?.Title}
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                  {pageHeader[0]?.Description}
+                </p>
+                <div className="mt-12">
+                  <Link
+                    href="/credits"
+                    className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                  >
+                    <span className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-500 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
+                    >Кредиты</span>
+
+                  </Link>
+                  <Link className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
+
+                    href=""
                   >
                     <span
-                    className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
+                      className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
                     >
-                    Ипотеки
+                      Ипотеки
                     </span>
-                  
-                </Link>
-                <Link
-                  href="">
-                  <span className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-700 uppercase text-sm shadow hover:shadow-lg">
-                
-                  Банкротства</span>
-                </Link>
-              </div>
-            </div>}
+
+                  </Link>
+                  <Link
+                    href="">
+                    <span className="cursor-pointer github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-400 active:bg-blueGray-700 uppercase text-sm shadow hover:shadow-lg">
+
+                      Банкротства</span>
+                  </Link>
+                </div>
+              </div>}
           </div>
         </div>
         <img
@@ -116,11 +115,11 @@ useEffect(() => {
       <section>
         <div className="container">
           <div className="row">
-          {factoids.map(factoid => {
-            return <div className="col col-md-4">
+            {factoids.map(factoid => {
+              return <div className="col col-md-4">
                 <Factoid id={factoid.title} title={factoid.title} subtitle={factoid.subtitle} />
               </div>
-          })}
+            })}
           </div>
         </div>
       </section>
@@ -128,11 +127,11 @@ useEffect(() => {
       <section>
         <div className="container">
           <div className="row">
-          {textBlocks.map(textBlock => {
-            return <div className="col col-md-6">
+            {textBlocks.map(textBlock => {
+              return <div className="col col-md-6">
                 <TextBlock id={textBlock.id + 'tb'} colorScheme="light" title={textBlock.Title} description={textBlock.Description} />
               </div>
-          })}
+            })}
           </div>
         </div>
       </section>
@@ -142,40 +141,40 @@ useEffect(() => {
       <section>
         <div className="container">
           <div className="row">
-          {headerDividers.map(headerDivider => {
-            return <div className="col col-md-6">
+            {headerDividers.map(headerDivider => {
+              return <div className="col col-md-6">
                 <TextBlock id={headerDivider.id + 'tb'} colorScheme="light"
                   title={headerDivider.Header}
                   description={headerDivider.Subheader} />
               </div>
-          })}
+            })}
           </div>
         </div>
       </section>
 
       {dataBlocks && <section>
         <div className="container">
-         {headerDividers && <>
-          <h4>{headerDividers[1]?.Header}</h4>
-          <p>{headerDividers[1]?.Subheader}</p>
+          {headerDividers && <>
+            <h4>{headerDividers[1]?.Header}</h4>
+            <p>{headerDividers[1]?.Subheader}</p>
           </>}
-          <DebtVolNum data={dataBlocks[3]} /> 
+          <DebtVolNum data={dataBlocks[3]} />
         </div>
       </section>}
 
-<br/>
-<br/>
-<br/>
+      <br />
+      <br />
+      <br />
 
-      <section>
+      {dataBlocks && dataBlocks[1] && <section>
         <div className="container">
           <div className="row">
-          {
-            <AllCreditsMap data={dataBlocks[1]} />
-          }
+            {
+              <AllCreditsMap data={dataBlocks[1]} />
+            }
           </div>
         </div>
-      </section>
+      </section>}
 
 
       <section className="py-20 bg-blueGray-600 overflow-hidden">
@@ -189,7 +188,7 @@ useEffect(() => {
                 Open Source
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
-                
+
                 <a
                   href="https://tailwindcss.com/?ref=creative"
                   className="text-blueGray-300"
@@ -238,7 +237,7 @@ useEffect(() => {
           </svg>
         </div>
 
-        
+
       </section>
 
       <Footer />
