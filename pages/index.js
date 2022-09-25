@@ -22,8 +22,10 @@ export default function Index() {
   const fetchData = async () => {
     setIsLoading(true)
     const dataBlocks = await axios.get(`${API_ROOT}home-page?populate[DataBlocks][populate]=*`);
+    // console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
 
     const PageHeader = await axios.get(`${API_ROOT}home-page?populate[PageHeader][populate]=*`);
+    // const PageHeader = await axios.get(`https://37.218.241.79/api/home-page?populate[PageHeader][populate]=*`);
 
     const factoids = await axios.get(`${API_ROOT}home-page?populate[factoids][populate]=*`);
 
@@ -31,7 +33,6 @@ export default function Index() {
 
     const headersDividers = await axios.get(`${API_ROOT}home-page?populate[HeadersDividers][populate]=*`);
 
-    // console.log('dta>>>', dataBlocks.data.data.attributes.DataBlocks);
     setDataBlocks(dataBlocks.data.data.attributes.DataBlocks);
 
     // console.log('PageHeader>>>', PageHeader.data.data.attributes.PageHeader);
