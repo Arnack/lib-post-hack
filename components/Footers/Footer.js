@@ -24,13 +24,17 @@ export default function Footer() {
           </svg>
         </div>
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap text-center lg:text-left">
+          <div className="flex flex-wrap lg:text-left">
             <div className="w-full lg:w-4/12 px-4">
-              <h4 className="text-3xl">Проект был запущен рамках хакатона «Прожектор-2022»</h4>
-              <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
+              <h5 className="">Проект является победителем хакатона «Прожектор-2022»</h5>
+              <strong style={{color: 'black'}} className="text-black">Запущен при поддержке 
+                <a href="https://te-st.ru/" target="_blank">
+                  теплицы социальных технологий
+                </a>
+              </strong>
+              <p className="text-lg mt-0 mb-2 text-blueGray-600">
                 За время время хакатона, команда не взяла ни одного кредита.
-                
-              </h5>
+              </p>
               <div className="mt-6 lg:mb-0 mb-6">
                 <button
                   className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"

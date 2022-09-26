@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-
-import { ApolloProvider } from "@apollo/react-hooks";  
+// import Script from 'next/script'; 
 import withData from "../utils/apollo";
 
 import PageChange from "components/PageChange/PageChange.js";
@@ -81,6 +80,15 @@ class MyApp extends App {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BEPJPJ47KC"></script>
+  <script>
+    {`window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-BEPJPJ47KC');`}
+  </script>
       </React.Fragment>
       // </ApolloProvider>
     );
