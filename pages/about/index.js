@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Head from 'next/head'
 import axios from "axios";
 import { API_ROOT } from "lib/utils/constants";
 
@@ -35,6 +36,10 @@ export default function Index() {
   if (loading || !textBlocks) {
     return (
       <>
+      <Head>
+      <title>О проекте | Кредитный прожектор</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
         <IndexNavbar fixed />
         <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
           <div className="container">
@@ -47,8 +52,12 @@ export default function Index() {
 
   return (
     <>
+    <Head>
+    <title>О проекте | Кредитный прожектор</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  </Head>
       <IndexNavbar fixed />
-      <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
+      <section className="header relative mb-16 pt-32 items-center flex max-h-600-px">
         <div className="container mx-auto flex flex-wrap">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-4xl text-blueGray-600">
@@ -63,7 +72,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
+      <section className="mt-20 md:mt-10 pt-16 pb-40 relative bg-blueGray-100">
         <div className="container">
           <div className="row">
           {textBlocks.map((textBlock, idx) => {

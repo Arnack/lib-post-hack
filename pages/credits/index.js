@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Head from 'next/head'
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
@@ -32,6 +33,10 @@ export default function Index() {
   if (loading || !pageData) {
     return (
       <>
+      <Head>
+      <title>Кредиты | Кредитный прожектор</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
         <IndexNavbar fixed />
         <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
           <div className="container">
@@ -43,7 +48,10 @@ export default function Index() {
   }
 
   return (
-    <>
+    <><Head>
+    <title>Кредиты | Кредитный прожектор</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  </Head>
       <IndexNavbar fixed />
 
 

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
-
+import Head from 'next/head'
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
 import { API_ROOT } from "lib/utils/constants";
@@ -64,6 +64,10 @@ export default function Index() {
 
   return (
     <>
+      <Head>
+        <title>Кредитный прожектор | Главная</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <IndexNavbar fixed />
       <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
