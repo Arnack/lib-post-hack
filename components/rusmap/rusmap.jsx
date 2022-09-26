@@ -24,7 +24,7 @@ const options = {
     },
 
     mapNavigation: {
-        enabled: true,
+        enabled: false,
         buttonOptions: {
             verticalAlign: 'bottom'
         }
@@ -36,7 +36,7 @@ const options = {
 
     series: [{
         data: [],
-        name: 'Random data',
+        name: 'data',
         states: {
             hover: {
                 color: '#BADA55'
@@ -55,6 +55,7 @@ export const RusMap = ({ mapTitle,  data, minVal, maxVal, stopColors }) => {
 
 
     const mapOptions = {
+        backgroundColor: 'transparent',
         title: {
             text: mapTitle || ''
         },

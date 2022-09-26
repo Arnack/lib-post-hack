@@ -6,11 +6,7 @@ const AllCreditsMap = ({ data }) => {
   const [currentDateIdx, setDateIdx] = useState(0);
 
 
-  console.log('data>>>>', data);
-
   const chartData = data.Data;
-
-  console.log('chartData>>>>', chartData);
 
   const dates = Object.keys(chartData).filter((key) => key !== "region_iso" && key !== "region_reg_name" && key !== "region_name" && key !== "region");
 
@@ -30,9 +26,31 @@ const AllCreditsMap = ({ data }) => {
     datas.push(data);
   }
 
+  console.log(data?.Description);
+  console.log(!data?.Description);
 
-//   console.log('datas>>>>', datas[currentDateIdx]);
-//   console.log('datax>>>>', datax[0]);   
+  if (!data?.Description) {
+    return <div className="container">
+    <div className="row">
+    <div className="col col-md-12"> 
+    <RusMap
+        mapTitle={data.Header}
+        data={datas[currentDateIdx]}
+      />
+      <input
+          value={currentDateIdx}
+        min={0}
+        max={dates.length - 1}
+        onChange={(e) => setDateIdx(+e.target.value)}
+        type={"range"}
+      />{" "}
+      {dates[currentDateIdx]} 
+
+      </div>
+      </div>
+      </div>
+
+  }
 
 
   return (
@@ -47,12 +65,6 @@ const AllCreditsMap = ({ data }) => {
       <RusMap
         mapTitle={data.Header}
         data={datas[currentDateIdx]}
-        // data={datax[0]}
-        // minVal={500}
-        // maxVal={9000}
-        // stopColors={[[40, '#fcdfdf'], [100, '#fccaca'], [500, '#faaeae'],
-        //   [1000, '#fc9898'], [3000, '#f67d7d'], [5000, '#f85d5d'],
-        //   [7000, '#fd3b3b'], [8000, '#f82b2b'], [9000, '#ff0707']]}
       />
 
 

@@ -10,6 +10,7 @@ import { Factoid } from "components/textBlocks/factoids/factoid";
 import { TextBlock } from "components/textBlocks/textBlock/TextBlock";
 import DebtVolNum from "./_homeCharts/debtVolume";
 import AllCreditsMap from "./_creditCharts/allCreditsMap";
+import { BancrouptMap } from "components/bancrouptMAP/BancrouptMap";
 
 export default function Index() {
   const [loading, setIsLoading] = useState(false);
@@ -139,7 +140,7 @@ export default function Index() {
 
 
       {/* header dividers */}
-      <section>
+      {/* <section>
         <div className="container">
           <div className="row">
             {headerDividers.map(headerDivider => {
@@ -151,7 +152,7 @@ export default function Index() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {dataBlocks && <section>
         <div className="container">
@@ -173,6 +174,8 @@ export default function Index() {
             {
               <AllCreditsMap data={dataBlocks[1]} />
             }
+
+            {/* <BancrouptMap /> */}
           </div>
         </div>
       </section>}
@@ -203,7 +206,7 @@ export default function Index() {
                 Вы можете поддержать проект создав Pull Request либо отметив его на GitHub.
               </p>
               <a
-                href="h"
+                href="https://github.com/Arnack/lib-post-hack"
                 className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
               >
                 Github Star

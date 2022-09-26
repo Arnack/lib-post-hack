@@ -42,7 +42,20 @@ export default function Index() {
     <>
       <IndexNavbar fixed />
 
-      {pageData?.Factoids?.length && <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
+
+      <section className="pb-40 relative bg-blueGray-100">
+      <div className="container">
+        <div className="container pt-20">
+          <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
+            <h2 className="font-semibold text-4xl">{pageData.About.Header}</h2>
+            <p>{pageData.About.Subheader}</p>
+            <p>{pageData.About.Description}</p>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      {!!pageData?.Factoids?.length && <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
         <div className="container">
           <div className="row">
             {
@@ -54,59 +67,62 @@ export default function Index() {
         </div>
       </section>}
 
-      <section className="pb-40 relative bg-blueGray-100">
-        <div className="container pt-20">
-          <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
-            <h2 className="font-semibold text-4xl">{pageData.About.Header}</h2>
-            <p>{pageData.About.Subheader}</p>
-            <p>{pageData.About.Description}</p>
-          </div>
+      <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
+        <BancrGenChart data={pageData.DataBlocks[0]} />
         </div>
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
-        <BancrGenChart data={pageData.DataBlocks[0]} />
-      </section>
-
-      <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
         <BancrGenChartV2 categories={ Object.values(pageData.DataBlocks[1].Data.period)}
           data={ Object.values(pageData.DataBlocks[1].Data.number)}
           header={pageData.DataBlocks[1].Header}
           subheader={pageData.DataBlocks[1].Subheader}
           description={pageData.DataBlocks[1].Description}
         />
+        </div>
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
         <BancrGenChartV2 categories={ Object.values(pageData.DataBlocks[2].Data.period)}
           data={ Object.values(pageData.DataBlocks[2].Data.value)}
           header={pageData.DataBlocks[2].Header}
           subheader={pageData.DataBlocks[2].Subheader}
           description={pageData.DataBlocks[2].Description}
         />
+        </div>
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
         <BancrGenChartV2 categories={ Object.values(pageData.DataBlocks[3].Data.period)}
           data={ Object.values(pageData.DataBlocks[3].Data.cases_total)}
           header={pageData.DataBlocks[3].Header}
           subheader={pageData.DataBlocks[3].Subheader}
           description={pageData.DataBlocks[3].Description}
         />
+        </div>
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
         <BancrGenChart data={pageData.DataBlocks[4]} isSummarise={true} />
+        </div>
       </section>
 
       <section className="md:mt-10 mb-20 pb-40 relative bg-blueGray-100">
+      <div className="container">
         <BancrGenChartV2 categories={ Object.values(pageData.DataBlocks[5].Data.period)}
           data={ Object.values(pageData.DataBlocks[5].Data.total_search_cases)}
           header={pageData.DataBlocks[5].Header}
           subheader={pageData.DataBlocks[5].Subheader}
           description={pageData.DataBlocks[5].Description}
         />
+        </div>
       </section>
+      
  
       <Footer />
     </>

@@ -25,42 +25,30 @@ export default function Footer() {
         </div>
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap text-center lg:text-left">
-            <div className="w-full lg:w-6/12 px-4">
+            <div className="w-full lg:w-4/12 px-4">
               <h4 className="text-3xl">Проект был запущен рамках хакатона «Прожектор-2022»</h4>
               <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
                 За время время хакатона, команда не взяла ни одного кредита.
                 
               </h5>
               <div className="mt-6 lg:mb-0 mb-6">
-                {/* <button
-                  className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-twitter"></i>
-                </button>
-                <button
-                  className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-facebook-square"></i>
-                </button>
-                <button
-                  className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                  type="button"
-                >
-                  <i className="fab fa-dribbble"></i>
-                </button> */}
                 <button
                   className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
                   type="button"
+                  
                 >
-                  <i className="fab fa-github"></i>
+                  <a style={{color: 'black !important'}}
+                    href="https://github.com/Arnack/lib-post-hack"
+                    target="_blank"
+                  >
+                  <i className="fab fa-github" />
+                  </a>
                 </button>
               </div>
             </div>
-            <div className="w-full lg:w-6/12 px-4">
+            <div className="w-full lg:w-8/12 px-4">
               <div className="flex flex-wrap items-top mb-6">
-                <div className="w-full lg:w-4/12 px-4 ml-auto">
+                <div className="w-full lg:w-8/12 px-4 ml-auto">
                   <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
                     Над проектом работали
                   </span>
@@ -70,7 +58,7 @@ export default function Footer() {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="#"
                       >
-                        Виталия Чикнаева @vitalia_chik
+                        Виталия @vitalia_chik
                       </a>
                     </li>
                     <li>
@@ -78,7 +66,7 @@ export default function Footer() {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="#"
                       >
-                        Константин Ворович @vorovich
+                        Константин @vorovich
                       </a>
                     </li>
                     <li>
@@ -86,7 +74,7 @@ export default function Footer() {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="#"
                       >
-                        Григорий Орлов @utrom_go
+                        Григорий @utrom_go
                       </a>
                     </li>
                     <li>
@@ -94,7 +82,15 @@ export default function Footer() {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="#"
                       >
-                        Степан Бубнов @Stefs
+                        Степан @Stefs
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
+                        href="#"
+                      >
+                        Ксения @th_thing
                       </a>
                     </li>
                   </ul>
@@ -105,12 +101,12 @@ export default function Footer() {
                   </span>
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
+                        // href="#"
                       >
                         ЦБ
-                      </a>
+                      </span>
                     </li>
                     <li>
                       <span
@@ -120,44 +116,47 @@ export default function Footer() {
                       </span>
                     </li>
                     <li>
-                      <a
+                      <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://Data.gov.ru"
                       >
-                        Data.gov.ru
-                      </a>
+                       Data.gov.ru
+                      </span>
                     </li>
                     <li>
-                      <a
+                    <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
                       >
-                        ЕФРСБ
-                      </a>
+                       ЕФРСБ
+                      </span>
+
                     </li>
                     <li>
-                      <a
+                    <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
                       >
-                        НБКИ
-                      </a>
+                       НБКИ
+                      </span>
+
                     </li>
+
+
+
                     <li>
-                      <a
+                    <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
                       >
-                        EМИСС
-                      </a>
+                       EМИСС
+                      </span>
+
                     </li>
+
                     <li>
-                      <a
+                    <span
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="#"
                       >
-                        ФССП
-                      </a>
+                       ФССП
+                      </span>
+
                     </li>
                   </ul>
                 </div>

@@ -17,7 +17,6 @@ import BancrGenChartV2 from "pages/_bancrCharts/genChartV2";
 import AllCreditsMap from "pages/_creditCharts/allCreditsMap";
 
 export default function Index() {
-
   const [loading, setIsLoading] = useState(false);
   const [pageData, setPageData] = useState(null);
 
@@ -40,7 +39,7 @@ export default function Index() {
     return (
       <>
         <IndexNavbar fixed />
-        <section className="mt-20 md:mt-10 pb-40 relative bg-blueGray-100">
+        <section className="mt-20 md:mt-1 pt-20 pb-40 relative bg-blueGray-100">
           <div className="container">
             <h4>Loading...</h4>
           </div>
@@ -53,7 +52,7 @@ export default function Index() {
     <>
       <IndexNavbar fixed />
 
-      <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
+      <section className="mt-2 md:mt-10 pt-20 pb-15 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <h2 className="font-semibold text-4xl">{pageData.About.Header}</h2>
@@ -69,7 +68,7 @@ export default function Index() {
         <hr className="w-full border-b border-blueGray-200" />
       </section>
 
-      { !!pageData.Factoids?.length && <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+      { !!pageData.Factoids?.length && <section className="pb-20 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">
@@ -84,7 +83,7 @@ export default function Index() {
       </section>}
 
 
-      <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+      <section className="md:mt-1 pb-20 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <AllCreditsMap data={pageData.DataBlocks[0]} />
@@ -92,7 +91,7 @@ export default function Index() {
         </div>
       </section>
 
-<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+<section className="md:mt-1 pb-20 relative bg-blueGray-100">
   <div className="container">
     <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
       <AllCreditsMap data={pageData.DataBlocks[1]} />
@@ -100,7 +99,7 @@ export default function Index() {
   </div>
 </section>
 
-<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+<section className="md:mt-1 pb-20 relative bg-blueGray-100">
   <div className="container">
     <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
       <AllCreditsMap data={pageData.DataBlocks[2]} />
@@ -109,7 +108,7 @@ export default function Index() {
 </section>
 
 
-<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+<section className="md:mt-1 pb-20 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">
@@ -122,7 +121,7 @@ export default function Index() {
       </section>
 
 
-<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+<section className="md:mt-1 pb-20 relative bg-blueGray-100">
   <div className="container">
     <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
       <div className="row">
@@ -135,7 +134,7 @@ export default function Index() {
 </section>
 
 
-<section className="md:mt-1 pb-40 relative bg-blueGray-100">
+<section className="md:mt-1 pb-20 relative bg-blueGray-100">
   <div className="container">
     <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
       <div className="row">
@@ -153,7 +152,7 @@ export default function Index() {
   </div>
 </section>
 
-      <section className="md:mt-1 pb-40 relative bg-blueGray-100">
+      <section className="md:mt-1 pb-20 relative bg-blueGray-100">
         <div className="container">
           <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
             <div className="row">

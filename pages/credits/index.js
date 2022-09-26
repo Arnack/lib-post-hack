@@ -4,14 +4,9 @@ import Link from "next/link";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import { TotalCredits } from "components/first/TotoalCredits";
-import { OutdatedDebt } from "components/first/OutdatedDebt";
-import { KeyRate } from "components/keyRate/KeyRate";
-import { MortgageChart } from "components/mortgage/mortgage";
 import axios from "axios";
 import { API_ROOT } from "lib/utils/constants";
 import { Factoid } from "components/textBlocks/factoids/factoid";
-import BancrGenChart from "pages/_bancrCharts/genChart";
 import BancrGenChartV2 from "pages/_bancrCharts/genChartV2";
 import AllCreditsMap from "pages/_creditCharts/allCreditsMap";
 
@@ -52,7 +47,7 @@ export default function Index() {
       <IndexNavbar fixed />
 
 
-      <section className="mt-2 md:mt-10 pb-40 relative bg-blueGray-100">
+      <section className="pt-20 pb-40 relative bg-blueGray-100">
         <div className="container">
         <div className="w-full pt-20 md:w-9/12 px-12 md:px-4">
           <h2 className="font-semibold text-4xl">{pageData.About.Header}</h2>
