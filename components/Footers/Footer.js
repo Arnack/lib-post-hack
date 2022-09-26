@@ -29,7 +29,7 @@ export default function Footer() {
               <h5 className="">Проект является победителем хакатона «Прожектор-2022»</h5>
               <strong style={{color: 'black'}} className="text-black">Запущен при поддержке 
                 <a href="https://te-st.ru/" target="_blank">
-                  теплицы социальных технологий
+                  {' '}теплицы социальных технологий
                 </a>
               </strong>
               <p className="text-lg mt-0 mb-2 text-blueGray-600">
