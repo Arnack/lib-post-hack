@@ -26,9 +26,9 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap lg:text-left">
             <div className="w-full lg:w-4/12 px-4">
-              <h5 className="">Проект является победителем хакатона «Прожектор-2022»</h5>
+              <h5 className="text-2xl">Проект является победителем хакатона «Прожектор-2022»</h5>
               <strong style={{color: 'black'}} className="text-black">Запущен при поддержке 
-                <a href="https://te-st.ru/" target="_blank">
+                <a href="https://te-st.ru/" style={{textDecoration: 'underline'}} rel="noreferrer" target="_blank">
                   {' '}теплицы социальных технологий
                 </a>
               </strong>

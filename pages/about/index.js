@@ -20,8 +20,6 @@ export default function Index() {
     setIsLoading(true);
     const data = await axios.get(`${API_ROOT}about?populate[TextBlocks][populate]=*`);
 
-    console.log('>>>>data.data.data.attributes.TextBlocks', data.data.data.attributes.TextBlocks);
-
     setPageData(data.data.data.attributes.TextBlocks);
     setIsLoading(false)
 
