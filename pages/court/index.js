@@ -20,8 +20,6 @@ export default function Index() {
     setIsLoading(true);
     const data = await axios.get(`${API_ROOT}court?populate[PageContent][populate]=*`);
 
-    console.log('>>>>data.data.data.attributes.PageContent', data.data.data.attributes.PageContent);
-
     setPageData(data.data.data.attributes.PageContent);
     setIsLoading(false)
 

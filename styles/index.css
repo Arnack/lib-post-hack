@@ -20,3 +20,7 @@ nav ul {
     display: none !important;
     opacity: 0 !important;
 }
+
+.card-title {
+    font-weight: bold;
+}

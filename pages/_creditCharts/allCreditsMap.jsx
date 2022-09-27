@@ -26,9 +26,6 @@ const AllCreditsMap = ({ data }) => {
     datas.push(data);
   }
 
-  console.log(data?.Description);
-  console.log(!data?.Description);
-
   if (!data?.Description) {
     return <div className="container">
     <div className="row">
